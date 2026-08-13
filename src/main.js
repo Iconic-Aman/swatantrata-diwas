@@ -3,7 +3,7 @@ import './styles/player.css';
 import './styles/drawer.css';
 
 import { playlist } from './playlist.js';
-import { formatTime, initClock, renderPlaylistDrawer, updateTrackListUI, initLiveCounter } from './ui.js';
+import { formatTime, initClock, renderPlaylistDrawer, updateTrackListUI } from './ui.js';
 
 let currentIndex = 0;
 let isPlaying = false;
@@ -162,5 +162,4 @@ renderPlaylistDrawer(trackListContainer, () => currentIndex, (idx) => {
 });
 
 if (clockEl) initClock(clockEl);
-initLiveCounter(liveCounterEl);
 loadTrack(0);
