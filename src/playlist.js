@@ -1,10 +1,10 @@
 export const playlist = [
   {
     id: 1,
-    title: "ऐ मेरे वतन के लोगो",
-    artist: "लता मंगेशकर (आकाशवाणी)",
-    year: "1963 / 1995",
-    duration: "6:25",
+    title: "मेरे देश की धरती",
+    artist: "महेंद्र कपूर (उपकार)",
+    year: "1967 / 1995",
+    duration: "7:06",
     src: import.meta.env.VITE_AUDIO_TRACK_1,
     tag: "असेंबली विशेष"
   },
