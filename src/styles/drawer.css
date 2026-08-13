@@ -1,0 +1,154 @@
+.hotkey-hints {
+  margin-top: 18px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.key-cap {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 10px;
+  font-family: monospace;
+  background: rgba(255, 253, 245, 0.8);
+  border: 1px solid var(--paper-border);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  color: var(--ink-secondary);
+}
+
+.drawer-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.playlist-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  width: 100%;
+  max-width: 580px;
+  max-height: 80vh;
+  background: var(--paper-card);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 1px solid var(--paper-border);
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.drawer-backdrop.open .playlist-drawer {
+  transform: translateX(-50%) translateY(0);
+}
+
+.drawer-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--paper-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-bg);
+}
+
+.drawer-title {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 18px;
+  color: var(--ink-primary);
+}
+
+.close-drawer-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  padding: 4px;
+}
+
+.track-list {
+  padding: 8px 12px 24px;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.track-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  margin-bottom: 4px;
+}
+
+.track-item:hover { background: var(--paper-bg); }
+
+.track-item.playing {
+  background: var(--saffron-light);
+  border-left: 4px solid var(--saffron);
+}
+
+.track-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.track-num {
+  font-family: 'Outfit', monospace;
+  font-size: 13px;
+  color: var(--ink-muted);
+  width: 20px;
+}
+
+.track-name {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink-primary);
+}
+
+.track-artist-sub {
+  font-family: 'Frank Ruhl Libre', serif;
+  font-size: 12px;
+  color: var(--ink-secondary);
+}
+
+.track-duration {
+  font-family: 'Outfit', monospace;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 480px) {
+  .app-wrapper { padding: 20px 12px 28px; }
+  .site-title { font-size: 22px; }
+  .cover-image { aspect-ratio: 4 / 3; }
+  .controls-row { gap: 6px; }
+  .volume-slider { width: 50px; }
+}

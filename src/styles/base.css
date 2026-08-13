@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Frank+Ruhl+Libre:wght@400;500;700&family=Outfit:wght@400;500;600&display=swap');
+
+:root {
+  --paper-bg: #f5edd8;
+  --paper-card: #fffdf5;
+  --paper-border: #e6d7b3;
+  --ink-primary: #2c2214;
+  --ink-secondary: #6e5e47;
+  --ink-muted: #9c8a70;
+  
+  --saffron: #e67e22;
+  --saffron-hover: #d35400;
+  --saffron-light: rgba(230, 126, 34, 0.12);
+  
+  --green: #27ae60;
+  --green-hover: #219653;
+  --green-light: rgba(39, 174, 96, 0.12);
+  
+  --shadow-sm: 0 4px 12px rgba(44, 34, 20, 0.08);
+  --shadow-lg: 0 20px 45px -12px rgba(44, 34, 20, 0.35);
+  --shadow-vinyl: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Frank Ruhl Libre', serif;
+  color: var(--ink-primary);
+  background-color: var(--paper-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Full-bleed responsive container for 100% viewport coverage */
+.app-wrapper {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px 40px;
+  z-index: 1;
+}
+
+/* Atmospheric Full-Screen Background Backdrop */
+.bg-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  background-image: url('/cover.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  filter: blur(24px) brightness(0.65) sepia(0.3);
+  transform: scale(1.12);
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: 
+    radial-gradient(ellipse at center, rgba(245, 237, 216, 0.85) 0%, rgba(230, 216, 185, 0.94) 100%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.015) 0px, rgba(0,0,0,0.015) 1px, transparent 1px, transparent 2px);
+}
+
+.page-container {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  background: rgba(255, 253, 245, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--paper-border);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 20px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--green);
+  box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7);
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(39, 174, 96, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(39, 174, 96, 0); }
+}
+
+.playlist-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.playlist-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-primary);
+  text-decoration: none;
+  padding: 8px 18px;
+  background: var(--paper-card);
+  border: 1px solid var(--paper-border);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.playlist-pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--saffron);
+  color: var(--saffron);
+  box-shadow: 0 6px 16px rgba(230, 126, 34, 0.2);
+}
+
+.school-header { margin-bottom: 24px; }
+
+.site-title {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--ink-primary);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  margin-bottom: 6px;
+}
+
+.site-subtitle {
+  font-family: 'Tiro Devanagari Hindi', serif;
+  font-size: 15px;
+  color: var(--ink-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.flag-stripe { display: inline-block; width: 18px; height: 3px; border-radius: 2px; }
+.flag-stripe.saffron { background: var(--saffron); }
+.flag-stripe.green { background: var(--green); }

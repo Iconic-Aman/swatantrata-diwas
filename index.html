@@ -2,59 +2,118 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर | १५ अगस्त १९९५</title>
   <meta name="description" content="वो देशभक्ति गाने जो स्कूल असेंबली में बजते थे — १५ अगस्त १९९५" />
-
   <meta property="og:title" content="शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर" />
   <meta property="og:description" content="वो देशभक्ति गाने जो स्कूल असेंबली में बजते थे — १५ अगस्त १९९५" />
-  <meta property="og:image" content="cover.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="675" />
+  <meta property="og:image" content="/cover.png" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="hi_IN" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर" />
-  <meta name="twitter:description" content="वो देशभक्ति गाने जो स्कूल असेंबली में बजते थे — १५ अगस्त १९९५" />
-  <meta name="twitter:image" content="cover.png" />
-
-  <link rel="stylesheet" href="style.css" />
+  <meta name="twitter:image" content="/cover.png" />
+  <link rel="icon" type="image/png" href="/cover.png" />
 </head>
 <body>
+  <!-- Atmospheric Full-Screen Background -->
+  <div class="bg-backdrop"></div>
+  <div class="bg-overlay"></div>
 
-  <main class="page">
+  <div class="app-wrapper">
+    <main class="page-container">
+      
+      <!-- Live Listener Counter -->
+      <div class="live-badge">
+        <span class="pulse-dot"></span>
+        <span id="liveCounterText">28 listening now</span>
+      </div>
 
-    <div class="online-counter" id="onlineCounter">— online</div>
+      <!-- External Playlist Links -->
+      <div class="playlist-links">
+        <a id="spotifyLink" href="#" target="_blank" rel="noopener noreferrer" class="playlist-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.341c-.217.357-.68.473-1.037.256-2.839-1.735-6.413-2.128-10.622-1.166-.406.093-.812-.162-.905-.568-.093-.406.162-.812.568-.905 4.61-1.053 8.563-.604 11.74 1.341.357.217.473.68.256 1.042zm1.477-3.284c-.273.444-.858.587-1.302.314-3.248-1.996-8.2-2.571-12.042-1.405-.5.152-1.026-.131-1.178-.631-.152-.5.131-1.026.631-1.178 4.387-1.332 9.851-.689 13.578 1.6 4.44.272.587.857.313 1.3zm.127-3.418C15.228 8.488 8.807 8.275 5.126 9.393c-.58.176-1.191-.158-1.367-.738-.176-.58.158-1.191.738-1.367 4.234-1.285 11.319-1.037 15.719 1.574.522.31.692.983.382 1.505-.31.522-.983.692-1.505.382z"/></svg>
+          Spotify
+        </a>
+        <a id="ytMusicLink" href="#" target="_blank" rel="noopener noreferrer" class="playlist-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.5c-4.136 0-7.5-3.364-7.5-7.5S7.864 4.5 12 4.5s7.5 3.364 7.5 7.5-3.364 7.5-7.5 7.5zm-2.25-10.875v6.75L15.375 12 9.75 8.625z"/></svg>
+          YT Music
+        </a>
+      </div>
 
-    <div class="playlist-links">
-      <a href="#" target="_blank" rel="noopener">Spotify</a>
-      <a href="#" target="_blank" rel="noopener">YT Music</a>
+      <!-- Heading -->
+      <header class="school-header">
+        <h1 class="site-title">शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर</h1>
+        <p class="site-subtitle">
+          <span class="flag-stripe saffron"></span>
+          स्वतंत्रता दिवस समारोह — १५ अगस्त १९९५
+          <span class="flag-stripe green"></span>
+        </p>
+      </header>
+
+      <!-- Framed Artwork with Vinyl Disk Overlay -->
+      <section class="artwork-section">
+        <div class="artwork-frame">
+          <img src="/cover.png" alt="स्वतंत्रता दिवस समारोह" class="cover-image" />
+          <div class="vinyl-disc paused" id="vinylDisc"></div>
+        </div>
+      </section>
+
+      <!-- Song Title & Tag Badge -->
+      <div class="song-info-card">
+        <span class="tag-badge" id="tagBadge">असेंबली विशेष</span>
+        <h2 class="song-title" id="songTitle">ऐ मेरे वतन के लोगो</h2>
+        <p class="song-artist" id="songArtist">लता मंगेशकर (आकाशवाणी)</p>
+      </div>
+
+      <!-- Saloon Audio Player Dock -->
+      <div class="player-dock">
+        <div class="scrubber-row">
+          <span class="time-text" id="currentTimeText">0:00</span>
+          <input type="range" id="scrubberSlider" class="scrubber-slider" value="0" min="0" max="100" />
+          <span class="time-text right" id="durationTimeText">0:00</span>
+        </div>
+
+        <div class="controls-row">
+          <div class="btn-group">
+            <button id="shuffleBtn" class="control-btn" aria-label="Shuffle">🔀</button>
+            <button id="prevBtn" class="control-btn" aria-label="Previous Track">⏮</button>
+          </div>
+
+          <button id="playPauseBtn" class="play-pause-btn" aria-label="Play">▶</button>
+
+          <div class="btn-group">
+            <button id="nextBtn" class="control-btn" aria-label="Next Track">⏭</button>
+            <button id="playlistToggleBtn" class="control-btn" aria-label="Open Playlist">📜</button>
+          </div>
+
+          <div class="volume-container">
+            <button id="volumeBtn" class="control-btn" aria-label="Volume">🔊</button>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="1" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Keyboard Hotkey Hints -->
+      <div class="hotkey-hints">
+        <span><span class="key-cap">Space</span> Play/Pause</span>
+        <span><span class="key-cap">←</span> / <span class="key-cap">→</span> Skip</span>
+        <span><span class="key-cap">M</span> Mute</span>
+      </div>
+    </main>
+  </div>
+
+  <!-- Playlist Drawer Modal -->
+  <div class="drawer-backdrop" id="drawerBackdrop">
+    <div class="playlist-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">१५ अगस्त असेंबली प्लेलिस्ट</h3>
+        <button class="close-drawer-btn" id="closeDrawerBtn">✕</button>
+      </div>
+      <div class="track-list" id="trackListContainer"></div>
     </div>
+  </div>
 
-    <h1 class="site-title">शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर</h1>
-    <p class="site-tagline">स्वतंत्रता दिवस समारोह — १५ अगस्त १९९५</p>
-
-    <div class="cover-frame">
-      <img class="cover-art" src="cover.png" alt="स्वतंत्रता दिवस समारोह" />
-    </div>
-
-    <div class="song-info">
-      <div class="song-title">ऐ मेरे वतन के लोगो</div>
-      <div class="song-artist">आकाशवाणी रिकॉर्डिंग्स</div>
-    </div>
-
-    <div class="audio-player">
-      <button id="playBtn" class="play-btn" aria-label="Play">▶</button>
-      <input type="range" id="scrubber" class="scrubber" value="0" min="0" max="100" />
-      <span id="timeDisplay" class="time-display">0:00 / 0:00</span>
-    </div>
-
-    <!-- Add your song file here later, e.g. src="song.mp3" -->
-    <audio id="audio"></audio>
-
-  </main>
-
-  <script src="script.js"></script>
+  <audio id="audioEngine" preload="metadata"></audio>
+  <script type="module" src="/src/main.js"></script>
 </body>
 </html>
