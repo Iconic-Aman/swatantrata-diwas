@@ -22,7 +22,7 @@ html, body {
   overflow: hidden;
 
   /* Layer 1: full-screen image cover */
-  background-image: url('/cover.png');
+  background-image: url('/cover.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

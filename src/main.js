@@ -31,9 +31,7 @@ const liveCounterEl = document.getElementById('liveCounterText');
 const drawerBackdrop = document.getElementById('drawerBackdrop');
 const trackListContainer = document.getElementById('trackListContainer');
 
-const spotifyLink = document.getElementById('spotifyLink');
 const ytMusicLink = document.getElementById('ytMusicLink');
-if (spotifyLink) spotifyLink.href = import.meta.env.VITE_SPOTIFY_PLAYLIST_URL || '#';
 if (ytMusicLink) ytMusicLink.href = import.meta.env.VITE_YT_MUSIC_PLAYLIST_URL || '#';
 
 function loadTrack(index) {
@@ -94,6 +92,14 @@ function prevTrack() {
   playTrack();
 }
 
+function updateProgressUI(current, duration) {
+  if (!duration) return;
+  const pct = (current / duration) * 100;
+  progressFill.style.width = `${pct}%`;
+  progressDot.style.left = `${pct}%`;
+  timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+}
+
 playPauseBtn.addEventListener('click', togglePlay);
 nextBtn.addEventListener('click', nextTrack);
 prevBtn.addEventListener('click', prevTrack);
@@ -113,14 +119,19 @@ audio.addEventListener('timeupdate', () => {
     const current = Math.floor(audio.currentTime);
     const duration = Math.floor(audio.duration);
     scrubberSlider.value = current;
-    const pct = (current / duration) * 100;
-    progressFill.style.width = `${pct}%`;
-    progressDot.style.left = `${pct}%`;
-    timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
+    updateProgressUI(current, duration);
   }
 });
 
-scrubberSlider.addEventListener('input', () => { audio.currentTime = scrubberSlider.value; });
+function handleScrub(val) {
+  const seekTime = parseFloat(val);
+  audio.currentTime = seekTime;
+  updateProgressUI(seekTime, audio.duration);
+}
+
+scrubberSlider.addEventListener('input', (e) => handleScrub(e.target.value));
+scrubberSlider.addEventListener('change', (e) => handleScrub(e.target.value));
+
 audio.addEventListener('ended', nextTrack);
 
 playlistToggleBtn.addEventListener('click', () => drawerBackdrop.classList.add('open'));
@@ -132,8 +143,16 @@ drawerBackdrop.addEventListener('click', (e) => {
 window.addEventListener('keydown', (e) => {
   if (document.activeElement.tagName === 'INPUT') return;
   if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
-  else if (e.code === 'ArrowRight') { e.preventDefault(); nextTrack(); }
-  else if (e.code === 'ArrowLeft') { e.preventDefault(); prevTrack(); }
+  else if (e.code === 'ArrowRight') {
+    e.preventDefault();
+    if (e.shiftKey) nextTrack();
+    else handleScrub(Math.min(audio.duration || 0, audio.currentTime + 5));
+  }
+  else if (e.code === 'ArrowLeft') {
+    e.preventDefault();
+    if (e.shiftKey) prevTrack();
+    else handleScrub(Math.max(0, audio.currentTime - 5));
+  }
 });
 
 renderPlaylistDrawer(trackListContainer, () => currentIndex, (idx) => {
