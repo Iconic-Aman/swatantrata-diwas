@@ -15,94 +15,84 @@
   <link rel="icon" type="image/png" href="/cover.png" />
 </head>
 <body>
-  <!-- Atmospheric Full-Screen Background -->
-  <div class="bg-backdrop"></div>
-  <div class="bg-overlay"></div>
 
-  <div class="app-wrapper">
-    <main class="page-container">
-      
-      <!-- Live Listener Counter -->
-      <div class="live-badge">
-        <span class="pulse-dot"></span>
-        <span id="liveCounterText">28 listening now</span>
+  <!-- Fixed Top Bar -->
+  <header class="top-bar">
+    <span class="clock" id="clock">--:-- --</span>
+
+    <div class="live-badge">
+      <span class="pulse-dot"></span>
+      <span id="liveCounterText">28 listening now</span>
+    </div>
+
+    <div class="top-links">
+      <a id="spotifyLink" href="#" target="_blank" rel="noopener noreferrer" class="top-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.341c-.217.357-.68.473-1.037.256-2.839-1.735-6.413-2.128-10.622-1.166-.406.093-.812-.162-.905-.568s.162-.812.568-.905c4.61-1.053 8.563-.604 11.74 1.341.357.217.473.68.256 1.042zm1.477-3.284c-.273.444-.858.587-1.302.314-3.248-1.996-8.2-2.571-12.042-1.405-.5.152-1.026-.131-1.178-.631s.131-1.026.631-1.178c4.387-1.332 9.851-.689 13.578 1.6.444.272.587.857.313 1.3zm.127-3.418C15.228 8.488 8.807 8.275 5.126 9.393c-.58.176-1.191-.158-1.367-.738s.158-1.191.738-1.367c4.234-1.285 11.319-1.037 15.719 1.574.522.31.692.983.382 1.505s-.983.692-1.505.382z"/></svg>
+        Spotify ↗
+      </a>
+      <a id="ytMusicLink" href="#" target="_blank" rel="noopener noreferrer" class="top-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        YT Music ↗
+      </a>
+    </div>
+  </header>
+
+  <!-- Center Stage: Big Title -->
+  <main class="center-stage">
+    <h1 class="site-title">शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर</h1>
+    <p class="site-subtitle">
+      <span class="flag-stripe saffron"></span>
+      स्वतंत्रता दिवस समारोह — १५ अगस्त १९९५
+      <span class="flag-stripe green"></span>
+    </p>
+  </main>
+
+  <!-- Glassmorphism Pill Player (saloon.wtf style) -->
+  <div class="player-pill">
+
+    <!-- Spinning cover disc -->
+    <div class="pill-cover">
+      <div class="pill-disc paused" id="pillDisc">
+        <img src="/cover.png" alt="cover art" />
       </div>
+      <div class="pill-disc-dot"></div>
+    </div>
 
-      <!-- External Playlist Links -->
-      <div class="playlist-links">
-        <a id="spotifyLink" href="#" target="_blank" rel="noopener noreferrer" class="playlist-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.521 17.341c-.217.357-.68.473-1.037.256-2.839-1.735-6.413-2.128-10.622-1.166-.406.093-.812-.162-.905-.568-.093-.406.162-.812.568-.905 4.61-1.053 8.563-.604 11.74 1.341.357.217.473.68.256 1.042zm1.477-3.284c-.273.444-.858.587-1.302.314-3.248-1.996-8.2-2.571-12.042-1.405-.5.152-1.026-.131-1.178-.631-.152-.5.131-1.026.631-1.178 4.387-1.332 9.851-.689 13.578 1.6 4.44.272.587.857.313 1.3zm.127-3.418C15.228 8.488 8.807 8.275 5.126 9.393c-.58.176-1.191-.158-1.367-.738-.176-.58.158-1.191.738-1.367 4.234-1.285 11.319-1.037 15.719 1.574.522.31.692.983.382 1.505-.31.522-.983.692-1.505.382z"/></svg>
-          Spotify
-        </a>
-        <a id="ytMusicLink" href="#" target="_blank" rel="noopener noreferrer" class="playlist-pill">
-          <svg viewBox="0 0 24 24"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.5c-4.136 0-7.5-3.364-7.5-7.5S7.864 4.5 12 4.5s7.5 3.364 7.5 7.5-3.364 7.5-7.5 7.5zm-2.25-10.875v6.75L15.375 12 9.75 8.625z"/></svg>
-          YT Music
-        </a>
-      </div>
-
-      <!-- Heading -->
-      <header class="school-header">
-        <h1 class="site-title">शासकीय उच्चतर माध्यमिक विद्यालय, रामपुर</h1>
-        <p class="site-subtitle">
-          <span class="flag-stripe saffron"></span>
-          स्वतंत्रता दिवस समारोह — १५ अगस्त १९९५
-          <span class="flag-stripe green"></span>
-        </p>
-      </header>
-
-      <!-- Framed Artwork with Vinyl Disk Overlay -->
-      <section class="artwork-section">
-        <div class="artwork-frame">
-          <img src="/cover.png" alt="स्वतंत्रता दिवस समारोह" class="cover-image" />
-          <div class="vinyl-disc paused" id="vinylDisc"></div>
+    <!-- Song meta + progress bar -->
+    <div class="pill-meta">
+      <p class="pill-title" id="songTitle">ऐ मेरे वतन के लोगो</p>
+      <p class="pill-artist" id="songArtist">लता मंगेशकर (आकाशवाणी)</p>
+      <div class="pill-bar-wrap">
+        <div class="pill-bar-track">
+          <div class="pill-bar-fill" id="progressFill"></div>
+          <div class="pill-bar-dot" id="progressDot"></div>
         </div>
-      </section>
-
-      <!-- Song Title & Tag Badge -->
-      <div class="song-info-card">
-        <span class="tag-badge" id="tagBadge">असेंबली विशेष</span>
-        <h2 class="song-title" id="songTitle">ऐ मेरे वतन के लोगो</h2>
-        <p class="song-artist" id="songArtist">लता मंगेशकर (आकाशवाणी)</p>
+        <input type="range" id="scrubberSlider" class="pill-scrubber" value="0" min="0" max="100" />
       </div>
+      <div class="pill-time" id="timeDisplay">0:00 / 0:00</div>
+    </div>
 
-      <!-- Saloon Audio Player Dock -->
-      <div class="player-dock">
-        <div class="scrubber-row">
-          <span class="time-text" id="currentTimeText">0:00</span>
-          <input type="range" id="scrubberSlider" class="scrubber-slider" value="0" min="0" max="100" />
-          <span class="time-text right" id="durationTimeText">0:00</span>
-        </div>
-
-        <div class="controls-row">
-          <div class="btn-group">
-            <button id="shuffleBtn" class="control-btn" aria-label="Shuffle">🔀</button>
-            <button id="prevBtn" class="control-btn" aria-label="Previous Track">⏮</button>
-          </div>
-
-          <button id="playPauseBtn" class="play-pause-btn" aria-label="Play">▶</button>
-
-          <div class="btn-group">
-            <button id="nextBtn" class="control-btn" aria-label="Next Track">⏭</button>
-            <button id="playlistToggleBtn" class="control-btn" aria-label="Open Playlist">📜</button>
-          </div>
-
-          <div class="volume-container">
-            <button id="volumeBtn" class="control-btn" aria-label="Volume">🔊</button>
-            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="1" step="0.05" value="1" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Keyboard Hotkey Hints -->
-      <div class="hotkey-hints">
-        <span><span class="key-cap">Space</span> Play/Pause</span>
-        <span><span class="key-cap">←</span> / <span class="key-cap">→</span> Skip</span>
-        <span><span class="key-cap">M</span> Mute</span>
-      </div>
-    </main>
+    <!-- Controls: shuffle, prev, play, next, playlist -->
+    <div class="pill-controls">
+      <button id="shuffleBtn" class="pill-ctrl" aria-label="Shuffle">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+      </button>
+      <button id="prevBtn" class="pill-ctrl" aria-label="Previous track">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+      </button>
+      <button id="playPauseBtn" class="pill-ctrl pill-play" aria-label="Play">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+      <button id="nextBtn" class="pill-ctrl" aria-label="Next track">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zm-2 6L5.5 6v12z"/></svg>
+      </button>
+      <button id="playlistToggleBtn" class="pill-ctrl" aria-label="Open Playlist">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+      </button>
+    </div>
   </div>
 
-  <!-- Playlist Drawer Modal -->
+  <!-- Playlist Drawer -->
   <div class="drawer-backdrop" id="drawerBackdrop">
     <div class="playlist-drawer">
       <div class="drawer-header">

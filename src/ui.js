@@ -9,6 +9,20 @@ export function formatTime(seconds) {
   return `${m}:${s}`;
 }
 
+export function initClock(clockElement) {
+  function updateTime() {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    clockElement.textContent = `${hours}:${minutes} ${ampm}`;
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+}
+
 export function renderPlaylistDrawer(container, getCurrentIndex, onSelectTrack) {
   container.innerHTML = '';
   playlist.forEach((track, i) => {

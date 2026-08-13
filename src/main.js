@@ -3,13 +3,14 @@ import './styles/player.css';
 import './styles/drawer.css';
 
 import { playlist } from './playlist.js';
-import { formatTime, renderPlaylistDrawer, updateTrackListUI, initLiveCounter } from './ui.js';
+import { formatTime, initClock, renderPlaylistDrawer, updateTrackListUI, initLiveCounter } from './ui.js';
 
 let currentIndex = 0;
 let isPlaying = false;
 let isShuffle = false;
 
 const audio = document.getElementById('audioEngine');
+const clockEl = document.getElementById('clock');
 const playPauseBtn = document.getElementById('playPauseBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
@@ -19,15 +20,12 @@ const closeDrawerBtn = document.getElementById('closeDrawerBtn');
 
 const songTitleEl = document.getElementById('songTitle');
 const songArtistEl = document.getElementById('songArtist');
-const tagBadgeEl = document.getElementById('tagBadge');
-const vinylDiscEl = document.getElementById('vinylDisc');
+const pillDiscEl = document.getElementById('pillDisc');
 
 const scrubberSlider = document.getElementById('scrubberSlider');
-const currentTimeEl = document.getElementById('currentTimeText');
-const durationTimeEl = document.getElementById('durationTimeText');
-
-const volumeBtn = document.getElementById('volumeBtn');
-const volumeSlider = document.getElementById('volumeSlider');
+const progressFill = document.getElementById('progressFill');
+const progressDot = document.getElementById('progressDot');
+const timeDisplay = document.getElementById('timeDisplay');
 const liveCounterEl = document.getElementById('liveCounterText');
 
 const drawerBackdrop = document.getElementById('drawerBackdrop');
@@ -47,8 +45,6 @@ function loadTrack(index) {
 
   songTitleEl.textContent = track.title;
   songArtistEl.textContent = `${track.artist} (${track.year})`;
-  tagBadgeEl.textContent = track.tag;
-  durationTimeEl.textContent = track.duration;
 
   audio.src = track.src;
   audio.load();
@@ -58,17 +54,21 @@ function loadTrack(index) {
 function playTrack() {
   audio.play().then(() => {
     isPlaying = true;
-    playPauseBtn.innerHTML = '❚❚';
-    vinylDiscEl.classList.add('spinning');
-    vinylDiscEl.classList.remove('paused');
+    playPauseBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+    if (pillDiscEl) {
+      pillDiscEl.classList.add('spinning');
+      pillDiscEl.classList.remove('paused');
+    }
   }).catch((err) => console.warn("Playback error:", err));
 }
 
 function pauseTrack() {
   audio.pause();
   isPlaying = false;
-  playPauseBtn.innerHTML = '▶';
-  vinylDiscEl.classList.add('paused');
+  playPauseBtn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>`;
+  if (pillDiscEl) {
+    pillDiscEl.classList.add('paused');
+  }
 }
 
 function togglePlay() {
@@ -105,30 +105,23 @@ shuffleBtn.addEventListener('click', () => {
 
 audio.addEventListener('loadedmetadata', () => {
   scrubberSlider.max = Math.floor(audio.duration || 0);
-  durationTimeEl.textContent = formatTime(audio.duration);
+  timeDisplay.textContent = `0:00 / ${formatTime(audio.duration)}`;
 });
 
 audio.addEventListener('timeupdate', () => {
-  if (!isNaN(audio.currentTime)) {
-    scrubberSlider.value = Math.floor(audio.currentTime);
-    currentTimeEl.textContent = formatTime(audio.currentTime);
+  if (!isNaN(audio.currentTime) && audio.duration) {
+    const current = Math.floor(audio.currentTime);
+    const duration = Math.floor(audio.duration);
+    scrubberSlider.value = current;
+    const pct = (current / duration) * 100;
+    progressFill.style.width = `${pct}%`;
+    progressDot.style.left = `${pct}%`;
+    timeDisplay.textContent = `${formatTime(current)} / ${formatTime(duration)}`;
   }
 });
 
 scrubberSlider.addEventListener('input', () => { audio.currentTime = scrubberSlider.value; });
 audio.addEventListener('ended', nextTrack);
-
-volumeSlider.addEventListener('input', (e) => {
-  const vol = parseFloat(e.target.value);
-  audio.volume = vol;
-  audio.muted = (vol === 0);
-  volumeBtn.textContent = (vol === 0) ? '🔇' : '🔊';
-});
-
-volumeBtn.addEventListener('click', () => {
-  audio.muted = !audio.muted;
-  volumeBtn.textContent = audio.muted ? '🔇' : '🔊';
-});
 
 playlistToggleBtn.addEventListener('click', () => drawerBackdrop.classList.add('open'));
 closeDrawerBtn.addEventListener('click', () => drawerBackdrop.classList.remove('open'));
@@ -141,7 +134,6 @@ window.addEventListener('keydown', (e) => {
   if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
   else if (e.code === 'ArrowRight') { e.preventDefault(); nextTrack(); }
   else if (e.code === 'ArrowLeft') { e.preventDefault(); prevTrack(); }
-  else if (e.code === 'KeyM') { audio.muted = !audio.muted; volumeBtn.textContent = audio.muted ? '🔇' : '🔊'; }
 });
 
 renderPlaylistDrawer(trackListContainer, () => currentIndex, (idx) => {
@@ -150,5 +142,6 @@ renderPlaylistDrawer(trackListContainer, () => currentIndex, (idx) => {
   drawerBackdrop.classList.remove('open');
 });
 
+if (clockEl) initClock(clockEl);
 initLiveCounter(liveCounterEl);
 loadTrack(0);
