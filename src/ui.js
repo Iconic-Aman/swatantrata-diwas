@@ -60,7 +60,7 @@ export function initLiveCounter(element) {
   function update() {
     const delta = Math.random() < 0.5 ? -1 : 1;
     onlineCount = Math.max(16, Math.min(54, onlineCount + delta));
-    element.textContent = `${onlineCount} listening now`;
+    element.textContent = `${onlineCount} साथी उपस्थित`;
   }
   setInterval(update, 3500);
 }
