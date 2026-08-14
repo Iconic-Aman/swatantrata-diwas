@@ -26,7 +26,6 @@ const scrubberSlider = document.getElementById('scrubberSlider');
 const progressFill = document.getElementById('progressFill');
 const progressDot = document.getElementById('progressDot');
 const timeDisplay = document.getElementById('timeDisplay');
-const liveCounterEl = document.getElementById('liveCounterText');
 
 const drawerBackdrop = document.getElementById('drawerBackdrop');
 const trackListContainer = document.getElementById('trackListContainer');
@@ -41,8 +40,8 @@ function loadTrack(index) {
   currentIndex = index;
   const track = playlist[currentIndex];
 
-  songTitleEl.textContent = track.title;
-  songArtistEl.textContent = `${track.artist} (${track.year})`;
+  if (songTitleEl) songTitleEl.textContent = track.title;
+  if (songArtistEl) songArtistEl.textContent = `${track.artist} (${track.year})`;
 
   audio.src = track.src;
   audio.load();
@@ -143,16 +142,8 @@ drawerBackdrop.addEventListener('click', (e) => {
 window.addEventListener('keydown', (e) => {
   if (document.activeElement.tagName === 'INPUT') return;
   if (e.code === 'Space') { e.preventDefault(); togglePlay(); }
-  else if (e.code === 'ArrowRight') {
-    e.preventDefault();
-    if (e.shiftKey) nextTrack();
-    else handleScrub(Math.min(audio.duration || 0, audio.currentTime + 5));
-  }
-  else if (e.code === 'ArrowLeft') {
-    e.preventDefault();
-    if (e.shiftKey) prevTrack();
-    else handleScrub(Math.max(0, audio.currentTime - 5));
-  }
+  else if (e.code === 'ArrowRight') { e.preventDefault(); nextTrack(); }
+  else if (e.code === 'ArrowLeft') { e.preventDefault(); prevTrack(); }
 });
 
 renderPlaylistDrawer(trackListContainer, () => currentIndex, (idx) => {
