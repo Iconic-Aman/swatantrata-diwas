@@ -7,24 +7,6 @@ function getSongUrl(filename) {
 export const playlist = [
   {
     id: 1,
-    title: "ऐ मेरे वतन के लोगों",
-    artist: "लता मंगेशकर",
-    year: "1963",
-    duration: "6:15",
-    src: getSongUrl("ऐ_मेरे_वतन_के_लोगों___Aye_Mere_Watan_Ke_Logon__Full_Songs___Desh_Bhakti_Song___Lata_Mangeshkar_Songs(128k).m4a"),
-    tag: "Immortal Tribute"
-  },
-  {
-    id: 2,
-    title: "मेरे देश की धरती",
-    artist: "महेन्द्र कपूर",
-    year: "1967",
-    duration: "7:06",
-    src: getSongUrl("Mere_Desh_Ki_Dharti_Lyrical_Video_-_Upkar_1967(128k).m4a"),
-    tag: "Assembly Special"
-  },
-  {
-    id: 3,
     title: "जन गण मन",
     artist: "राष्ट्रगान",
     year: "1911",
@@ -33,7 +15,34 @@ export const playlist = [
     tag: "National Anthem"
   },
   {
+    id: 2,
+    title: "जहाँ डाल-डाल पर सोने की चिड़िया",
+    artist: "मोहम्मद रफ़ी",
+    year: "1965",
+    duration: "5:10",
+    src: getSongUrl("Jahan_Dal_Dal_Pe_Sone_Ki_Chidiya___Lyrical___Mohammed_Rafi___Sikander-E-Azam___Hansraj_Behl(128k).m4a"),
+    tag: "Golden Heritage"
+  },
+  {
+    id: 3,
+    title: "ऐ मेरे वतन के लोगों",
+    artist: "लता मंगेशकर",
+    year: "1963",
+    duration: "6:15",
+    src: getSongUrl("ऐ_मेरे_वतन_के_लोगों___Aye_Mere_Watan_Ke_Logon__Full_Songs___Desh_Bhakti_Song___Lata_Mangeshkar_Songs(128k).m4a"),
+    tag: "Immortal Tribute"
+  },
+  {
     id: 4,
+    title: "मेरे देश की धरती",
+    artist: "महेन्द्र कपूर",
+    year: "1967",
+    duration: "7:06",
+    src: getSongUrl("Mere_Desh_Ki_Dharti_Lyrical_Video_-_Upkar_1967(128k).m4a"),
+    tag: "Assembly Special"
+  },
+  {
+    id: 5,
     title: "वंदे मातरम्",
     artist: "राष्ट्रीय गीत",
     year: "1882",
@@ -42,7 +51,7 @@ export const playlist = [
     tag: "National Song"
   },
   {
-    id: 5,
+    id: 6,
     title: "यह देश है वीर जवानों का",
     artist: "मोहम्मद रफ़ी & बलबीर",
     year: "1957",
@@ -51,7 +60,7 @@ export const playlist = [
     tag: "Independence Special"
   },
   {
-    id: 6,
+    id: 7,
     title: "अब तुम्हारे हवाले वतन साथियों",
     artist: "मोहम्मद रफ़ी",
     year: "1964",
@@ -60,7 +69,7 @@ export const playlist = [
     tag: "Soldiers Tribute"
   },
   {
-    id: 7,
+    id: 8,
     title: "आओ बच्चों तुम्हें दिखाएं",
     artist: "कवि प्रदीप",
     year: "1954",
@@ -69,7 +78,7 @@ export const playlist = [
     tag: "School Assembly"
   },
   {
-    id: 8,
+    id: 9,
     title: "अपनी आजादी को हम हरगिज मिटा सकते नहीं",
     artist: "मोहम्मद रफ़ी",
     year: "1964",
@@ -78,7 +87,7 @@ export const playlist = [
     tag: "Freedom Classic"
   },
   {
-    id: 9,
+    id: 10,
     title: "है प्रीत जहां की रीत सदा (भारत का रहने वाला हूँ)",
     artist: "महेन्द्र कपूर",
     year: "1970",
@@ -87,22 +96,13 @@ export const playlist = [
     tag: "Motherland Pride"
   },
   {
-    id: 10,
+    id: 11,
     title: "हम लाये हैं तूफ़ान से कश्ती निकाल के",
     artist: "मोहम्मद रफ़ी",
     year: "1954",
     duration: "4:50",
     src: getSongUrl("Hum_Laye_Hain_Toofan_Se_Kashti_HD_-_Mohammed_Rafi_Old_Songs_-_Jagri_1954_-_Deshbhakti_Song(128k).m4a"),
     tag: "Inspirational Classic"
-  },
-  {
-    id: 11,
-    title: "जहाँ डाल-डाल पर सोने की चिड़िया",
-    artist: "मोहम्मद रफ़ी",
-    year: "1965",
-    duration: "5:10",
-    src: getSongUrl("Jahan_Dal_Dal_Pe_Sone_Ki_Chidiya___Lyrical___Mohammed_Rafi___Sikander-E-Azam___Hansraj_Behl(128k).m4a"),
-    tag: "Golden Heritage"
   },
   {
     id: 12,
