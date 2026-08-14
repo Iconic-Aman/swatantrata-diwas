@@ -1,83 +1,126 @@
+const r2Base = import.meta.env.VITE_R2_AUDIO_BASE_URL || '';
+
+function getSongUrl(filename) {
+  return `${r2Base}/${encodeURIComponent(filename)}`;
+}
+
 export const playlist = [
   {
     id: 1,
-    title: "मेरे देश की धरती",
-    artist: "महेंद्र कपूर (उपकार)",
-    year: "1967 / 1995",
-    duration: "7:06",
-    src: import.meta.env.VITE_AUDIO_TRACK_1,
-    tag: "असेंबली विशेष"
+    title: "ऐ मेरे वतन के लोगों",
+    artist: "लता मंगेशकर",
+    year: "1963",
+    duration: "6:15",
+    src: getSongUrl("ऐ_मेरे_वतन_के_लोगों___Aye_Mere_Watan_Ke_Logon__Full_Songs___Desh_Bhakti_Song___Lata_Mangeshkar_Songs(128k).m4a"),
+    tag: "Immortal Tribute"
   },
   {
     id: 2,
-    title: "कदम कदम बढ़ाए जा",
-    artist: "आज़ाद हिन्द फ़ौज दल",
-    year: "1943 / 1995",
-    duration: "2:40",
-    src: import.meta.env.VITE_AUDIO_TRACK_2,
-    tag: "मार्च पास्ट"
+    title: "मेरे देश की धरती",
+    artist: "महेन्द्र कपूर",
+    year: "1967",
+    duration: "7:06",
+    src: getSongUrl("Mere_Desh_Ki_Dharti_Lyrical_Video_-_Upkar_1967(128k).m4a"),
+    tag: "Assembly Special"
   },
   {
     id: 3,
-    title: "विजयी विश्व तिरंगा प्यारा",
-    artist: "विद्यालय कोरस दल",
-    year: "1924 / 1995",
-    duration: "3:15",
-    src: import.meta.env.VITE_AUDIO_TRACK_3,
-    tag: "ध्वजारोहण गीत"
+    title: "जन गण मन",
+    artist: "राष्ट्रगान",
+    year: "1911",
+    duration: "0:52",
+    src: getSongUrl("Jana_Gana_Mana__HD__-_National_Anthem_With_Lyrics_-_Best_Patriotic_Song(128k).m4a"),
+    tag: "National Anthem"
   },
   {
     id: 4,
-    title: "सारे जहाँ से अच्छा",
-    artist: "बाल संगीत मण्डली",
-    year: "1950 / 1995",
-    duration: "3:50",
-    src: import.meta.env.VITE_AUDIO_TRACK_4,
-    tag: "स्कूल प्रार्थना"
+    title: "वंदे मातरम्",
+    artist: "राष्ट्रीय गीत",
+    year: "1882",
+    duration: "3:15",
+    src: getSongUrl("Vande_Mataram__HD__-_National_Song_Of_india_-_Best_Patriotic_Song(128k).m4a"),
+    tag: "National Song"
   },
   {
     id: 5,
-    title: "माँ तुझे सलाम (वंदे मातरम)",
-    artist: "ए. आर. रहमान",
-    year: "1997",
-    duration: "6:10",
-    src: import.meta.env.VITE_AUDIO_TRACK_5,
-    tag: "९० का दशक स्पेशल"
+    title: "यह देश है वीर जवानों का",
+    artist: "मोहम्मद रफ़ी & बलबीर",
+    year: "1957",
+    duration: "4:40",
+    src: getSongUrl("Yeh_Desh_Hai_Veer_Jawanon_ka___देश_भक्ति_स्पेशल___Independence_Day_Song___देशभक्ति_गीत(128k).m4a"),
+    tag: "Independence Special"
   },
   {
     id: 6,
-    title: "संदेशे आते हैं",
-    artist: "सोनू निगम व रूप कुमार राठौड़",
-    year: "1997",
-    duration: "10:18",
-    src: import.meta.env.VITE_AUDIO_TRACK_6,
-    tag: "सैनिक स्मरण"
+    title: "अब तुम्हारे हवाले वतन साथियों",
+    artist: "मोहम्मद रफ़ी",
+    year: "1964",
+    duration: "6:05",
+    src: getSongUrl("4K_अब_तुम्हारे_हवाले_वतन_साथियों_पेट्रोटिक_गीत___Ab_Tumhare_Hawaale_Watan_Saathiyon_Patriotic_Song(128k).m4a"),
+    tag: "Soldiers Tribute"
   },
   {
     id: 7,
-    title: "दिल दिया है जां भी देंगे",
-    artist: "मोहम्मद अज़ीज़ व कविता कृष्णमूर्ति",
-    year: "1986 / 1995",
-    duration: "7:00",
-    src: import.meta.env.VITE_AUDIO_TRACK_7,
-    tag: "समारोह प्रस्तुति"
+    title: "आओ बच्चों तुम्हें दिखाएं",
+    artist: "कवि प्रदीप",
+    year: "1954",
+    duration: "4:15",
+    src: getSongUrl("Aao_Bachho_Tumhe_Dikhaye__HD__-_Jagriti_Songs_-_Abhi_Bhattacharya_-_Kavi_Pradeep_-_Patriotic_Song(128k).m4a"),
+    tag: "School Assembly"
   },
   {
     id: 8,
-    title: "ये जो देस है तेरा",
-    artist: "ए. आर. रहमान",
-    year: "2004",
-    duration: "5:28",
-    src: import.meta.env.VITE_AUDIO_TRACK_8,
-    tag: "मातृभूमि प्रेम"
+    title: "अपनी आजादी को हम हरगिज मिटा सकते नहीं",
+    artist: "मोहम्मद रफ़ी",
+    year: "1964",
+    duration: "5:20",
+    src: getSongUrl("Apni_Azadi_Ko_Hum_HD_-_Mohammed_Rafi_Deshbhakti_Songs_-_Dilip_Kumar,_Vyjayanthimala___Leader_1964(128k).m4a"),
+    tag: "Freedom Classic"
   },
   {
     id: 9,
-    title: "जन गण मन (राष्ट्रगान)",
-    artist: "शासकीय रामपुर विद्यालय कोरस",
-    year: "1911 / 1995",
-    duration: "0:52",
-    src: import.meta.env.VITE_AUDIO_TRACK_9,
-    tag: "राष्ट्रगान"
+    title: "है प्रीत जहां की रीत सदा (भारत का रहने वाला हूँ)",
+    artist: "महेन्द्र कपूर",
+    year: "1970",
+    duration: "6:30",
+    src: getSongUrl("Bharat_Ka_Rehnewaala_Hoon__Hai_Preet_Jaha_Ki_Reet____Manoj_Kumar_Desh_Bhakti_Songs___Mahendra_Kapoor(128k).m4a"),
+    tag: "Motherland Pride"
+  },
+  {
+    id: 10,
+    title: "हम लाये हैं तूफ़ान से कश्ती निकाल के",
+    artist: "मोहम्मद रफ़ी",
+    year: "1954",
+    duration: "4:50",
+    src: getSongUrl("Hum_Laye_Hain_Toofan_Se_Kashti_HD_-_Mohammed_Rafi_Old_Songs_-_Jagri_1954_-_Deshbhakti_Song(128k).m4a"),
+    tag: "Inspirational Classic"
+  },
+  {
+    id: 11,
+    title: "जहाँ डाल-डाल पर सोने की चिड़िया",
+    artist: "मोहम्मद रफ़ी",
+    year: "1965",
+    duration: "5:10",
+    src: getSongUrl("Jahan_Dal_Dal_Pe_Sone_Ki_Chidiya___Lyrical___Mohammed_Rafi___Sikander-E-Azam___Hansraj_Behl(128k).m4a"),
+    tag: "Golden Heritage"
+  },
+  {
+    id: 12,
+    title: "मेरा रंग दे बसंती चोला",
+    artist: "मुकेश & महेन्द्र कपूर",
+    year: "1965",
+    duration: "6:45",
+    src: getSongUrl("Mera_Rang_De_Basanti_Chola___मेरा_रंग_दे_बसंती_चोला___With_Lyrics___23rd_March1931Shaheed#deshbhakti(128k).m4a"),
+    tag: "Martyr Tribute"
+  },
+  {
+    id: 13,
+    title: "मेरे देश की धरती (अल्ट्रा क्लासिक)",
+    artist: "महेन्द्र कपूर",
+    year: "1967",
+    duration: "7:06",
+    src: getSongUrl("mere-desh-ki-dharti.mp4"),
+    tag: "Classic Audio"
   }
 ];
+
