@@ -16,12 +16,12 @@ export const playlist = [
   },
   {
     id: 2,
-    title: "जहाँ डाल-डाल पर सोने की चिड़िया",
-    artist: "मोहम्मद रफ़ी",
-    year: "1965",
-    duration: "5:10",
-    src: getSongUrl("Jahan_Dal_Dal_Pe_Sone_Ki_Chidiya___Lyrical___Mohammed_Rafi___Sikander-E-Azam___Hansraj_Behl(128k).m4a"),
-    tag: "Golden Heritage"
+    title: "मेरे देश की धरती",
+    artist: "महेन्द्र कपूर",
+    year: "1967",
+    duration: "7:06",
+    src: getSongUrl("Mere_Desh_Ki_Dharti_Lyrical_Video_-_Upkar_1967(128k).m4a"),
+    tag: "Assembly Special"
   },
   {
     id: 3,
@@ -34,12 +34,12 @@ export const playlist = [
   },
   {
     id: 4,
-    title: "मेरे देश की धरती",
-    artist: "महेन्द्र कपूर",
-    year: "1967",
-    duration: "7:06",
-    src: getSongUrl("Mere_Desh_Ki_Dharti_Lyrical_Video_-_Upkar_1967(128k).m4a"),
-    tag: "Assembly Special"
+    title: "जहाँ डाल-डाल पर सोने की चिड़िया",
+    artist: "मोहम्मद रफ़ी",
+    year: "1965",
+    duration: "5:10",
+    src: getSongUrl("Jahan_Dal_Dal_Pe_Sone_Ki_Chidiya___Lyrical___Mohammed_Rafi___Sikander-E-Azam___Hansraj_Behl(128k).m4a"),
+    tag: "Golden Heritage"
   },
   {
     id: 5,
