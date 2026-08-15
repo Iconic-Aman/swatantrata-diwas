@@ -156,3 +156,12 @@ body::before {
 .flag-stripe { display: inline-block; width: 22px; height: 3px; border-radius: 2px; }
 .flag-stripe.saffron { background: var(--saffron); }
 .flag-stripe.green { background: var(--green); }
+
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 14px 16px;
+  }
+  .site-title {
+    font-size: clamp(32px, 10vw, 56px);
+  }
+}
