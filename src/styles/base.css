@@ -16,19 +16,22 @@
 html, body {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'Frank Ruhl Libre', serif;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
   overflow: hidden;
 
-  /* Layer 1: full-screen image cover */
+  /* Fullscreen background cover */
   background-image: url('/cover.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* Layer 2: minimal dark scrim for text readability */
+/* Minimal dark scrim for text readability */
 body::before {
   content: '';
   position: fixed;
@@ -38,7 +41,7 @@ body::before {
   pointer-events: none;
 }
 
-/* Top Bar: Left Clock, Center Live Badge, Right Playlist Links */
+/* Top Bar: Left Clock, Right Playlist Link on Desktop */
 .top-bar {
   position: fixed;
   top: 0;
@@ -52,24 +55,15 @@ body::before {
 }
 
 .top-bar-left {
-  width: 40px;
+  display: none;
 }
 
 .clock {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-family: 'Outfit', monospace;
   font-size: 14px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .top-links {
@@ -78,28 +72,27 @@ body::before {
   gap: 12px;
 }
 
-.yt-music-btn {
+.top-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
+  padding: 7px 16px;
   background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
-.yt-music-btn:hover {
-  background: rgba(255, 0, 0, 0.75);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.08);
+.top-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 /* Center Stage: Big Hero Title */
@@ -139,20 +132,37 @@ body::before {
 .flag-stripe.saffron { background: var(--saffron); }
 .flag-stripe.green { background: var(--green); }
 
+/* Smartphone / Responsive Mode Only */
 @media (max-width: 480px) {
   .top-bar {
     padding: 14px 16px;
-  }
-  .clock {
-    font-size: 12px;
-    padding: 4px 12px;
-  }
-  .yt-music-btn {
-    width: 34px;
-    height: 34px;
+    position: relative;
   }
   .top-bar-left {
+    display: block;
     width: 34px;
+  }
+  .clock {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    padding: 4px 12px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .top-link {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .yt-text {
+    display: none;
   }
   .site-title {
     font-size: clamp(32px, 10vw, 56px);
