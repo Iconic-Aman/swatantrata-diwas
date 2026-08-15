@@ -198,16 +198,16 @@
 
 @media (max-width: 580px) {
   .player-pill {
-    width: calc(100% - 48px);
-    max-width: 360px;
-    padding: 6px 12px;
+    width: calc(100% - 64px);
+    max-width: 300px;
+    padding: 6px 10px;
     gap: 8px;
-    bottom: 60px;
+    bottom: 84px;
     border-radius: 999px;
   }
   .pill-cover {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
   .pill-disc-dot {
     width: 8px;
@@ -234,15 +234,15 @@
     gap: 1px;
   }
   .pill-ctrl {
-    width: 26px;
-    height: 26px;
+    width: 25px;
+    height: 25px;
   }
   .pill-ctrl svg {
     transform: scale(0.85);
   }
   .pill-play {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
   .pill-play svg {
     transform: scale(0.85);
@@ -251,10 +251,10 @@
 
 @media (max-width: 380px) {
   .player-pill {
-    width: calc(100% - 32px);
+    width: calc(100% - 48px);
     padding: 5px 8px;
     gap: 6px;
-    bottom: 52px;
+    bottom: 76px;
   }
   .pill-cover {
     width: 30px;
