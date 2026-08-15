@@ -1,7 +1,7 @@
 /* Glassmorphism Pill Player (saloon.wtf) fixed at bottom */
 .player-pill {
   position: fixed;
-  bottom: 24px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 32px);
@@ -202,7 +202,7 @@
     max-width: 440px;
     padding: 6px 12px;
     gap: 8px;
-    bottom: 12px;
+    bottom: 38px;
     border-radius: 999px;
   }
   .pill-cover {
@@ -254,7 +254,7 @@
     width: calc(100% - 16px);
     padding: 5px 8px;
     gap: 6px;
-    bottom: 8px;
+    bottom: 32px;
   }
   .pill-cover {
     width: 30px;
