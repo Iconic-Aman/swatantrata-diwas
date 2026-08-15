@@ -115,12 +115,48 @@ export const playlist = [
   },
   {
     id: 13,
-    title: "मेरे देश की धरती (अल्ट्रा क्लासिक)",
-    artist: "महेन्द्र कपूर",
-    year: "1967",
-    duration: "7:06",
-    src: getSongUrl("mere-desh-ki-dharti.mp4"),
-    tag: "Classic Audio"
+    title: "ऐ वतन (ऐ वतन मेरे आबाद रहे तू)",
+    artist: "अरिजीत सिंह / सुनिधि चौहान",
+    year: "2018",
+    duration: "5:42",
+    src: getSongUrl("Ay_Watan(256k).mp3"),
+    tag: "Modern Classic"
+  },
+  {
+    id: 14,
+    title: "कदम कदम बढ़ाये जा",
+    artist: "चित्रगुप्त / अशोक कुमार",
+    year: "1950",
+    duration: "3:05",
+    src: getSongUrl("Kadam_Kadam_Badhaye_Ja_-_Ashok_Kumar,_Chitalkar,_Samadhi_Song(128k).m4a"),
+    tag: "March Past"
+  },
+  {
+    id: 15,
+    title: "साबरमती के संत तूने कर दिया कमाल",
+    artist: "आशा भोसले & हेमंत कुमार",
+    year: "1954",
+    duration: "4:30",
+    src: getSongUrl("Sabarmati_Ke_Sant_Tune_Kar_diya_Kamaal_-_Asha_Bhosle___Hemant_Kumar___Jagriti___Patriotic_Song(128k).m4a"),
+    tag: "Mahatma Tribute"
+  },
+  {
+    id: 16,
+    title: "यह माटी सभी की कहानी कहेगी",
+    artist: "सी. रामचंद्र / नवरंग",
+    year: "1959",
+    duration: "4:15",
+    src: getSongUrl("Yeh_Mati_Sabhi_ki_kahani_kahegi....Navrang(128k).m4a"),
+    tag: "Motherland Love"
+  },
+  {
+    id: 17,
+    title: "ऐ मालिक तेरे बंदे हम",
+    artist: "लता मंगेशकर",
+    year: "1957",
+    duration: "4:05",
+    src: getSongUrl("aye_malik_tere_bande_ham_2Aankhe12_Hath_1957_V.Shantaram__Sandhya__Lata_BharatVyas_VasantDesai_a_tri(128k).m4a"),
+    tag: "School Prayer"
   }
 ];
 
